@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import igor.petrov.simplecomposecheckbox.checkBox.TodoItemRoot
 import igor.petrov.simplecomposecheckbox.ui.theme.SimpleComposeCheckboxTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,10 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             SimpleComposeCheckboxTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    TodoItemRoot(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
