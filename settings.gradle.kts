@@ -19,6 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Simple Compose Checkbox"
+rootProject.name = "Todo List App"
 include(":app")
- 

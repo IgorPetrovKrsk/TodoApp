@@ -1,11 +1,10 @@
-package igor.petrov.simplecomposecheckbox.checkBox
+package igor.petrov.todolistapp.ui.theme.todoItem
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -23,7 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import igor.petrov.simplecomposecheckbox.Todo
+import igor.petrov.todolistapp.Todo
 
 @Composable
 fun TodoItemRoot(modifier: Modifier = Modifier) {
@@ -35,7 +34,7 @@ fun TodoItemRoot(modifier: Modifier = Modifier) {
 fun TodoItem(todo: Todo, onCheckedChanged: ((Boolean) -> Unit), modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
-            .fillMaxSize()
+            .fillMaxWidth()
             .padding(8.dp),
         contentAlignment = Alignment.Center
     ) {

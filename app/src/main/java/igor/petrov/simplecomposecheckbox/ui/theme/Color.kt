@@ -1,4 +1,4 @@
-package igor.petrov.simplecomposecheckbox.ui.theme
+package igor.petrov.todolistapp.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

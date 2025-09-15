@@ -1,4 +1,4 @@
-package igor.petrov.simplecomposecheckbox
+package igor.petrov.todolistapp
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,12 +7,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import igor.petrov.simplecomposecheckbox.checkBox.TodoItemRoot
-import igor.petrov.simplecomposecheckbox.ui.theme.SimpleComposeCheckboxTheme
+import igor.petrov.todolistapp.ui.theme.SimpleComposeCheckboxTheme
+import igor.petrov.todolistapp.ui.theme.todoItem.TodoList
+import igor.petrov.todolistapp.ui.theme.todoItem.TodoListRoot
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,25 +21,17 @@ class MainActivity : ComponentActivity() {
         setContent {
             SimpleComposeCheckboxTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    TodoItemRoot(modifier = Modifier.padding(innerPadding))
+                    TodoListRoot(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun TodoListPreview() {
     SimpleComposeCheckboxTheme {
-        Greeting("Android")
+        TodoList()
     }
 }

@@ -1,4 +1,4 @@
-package igor.petrov.simplecomposecheckbox
+package igor.petrov.todolistapp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

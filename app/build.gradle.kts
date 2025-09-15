@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "igor.petrov.simplecomposecheckbox"
+    namespace = "igor.petrov.todolistapp"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "igor.petrov.simplecomposecheckbox"
+        applicationId = "igor.petrov.todolistapp"
         minSdk = 26
         targetSdk = 36
         versionCode = 1

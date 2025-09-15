@@ -1,4 +1,4 @@
-package igor.petrov.simplecomposecheckbox
+package igor.petrov.todolistapp
 
 import org.junit.Test
 
