@@ -8,7 +8,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.sharp.Delete
+import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -27,7 +33,7 @@ import igor.petrov.todolistapp.Todo
 @Composable
 fun TodoItemRoot(modifier: Modifier = Modifier) {
     var todo by rememberSaveable { mutableStateOf<Todo>(Todo("Test", "This is a test todo", false)) }
-    TodoItem(todo, onCheckedChanged = { it -> todo = todo.copy(isChecked = it) },modifier = modifier)
+    TodoItem(todo, onCheckedChanged = { it -> todo = todo.copy(isChecked = it) }, modifier = modifier)
 }
 
 @Composable
@@ -61,10 +67,16 @@ fun TodoItem(todo: Todo, onCheckedChanged: ((Boolean) -> Unit), modifier: Modifi
                     textDecoration = if (todo.isChecked) TextDecoration.LineThrough else TextDecoration.None)
 
             }
-            Checkbox(modifier = Modifier
-                .align(Alignment.Top),
-                checked = todo.isChecked,
-                onCheckedChange = { isChecked -> onCheckedChanged(isChecked) })
+            Row {
+                Checkbox(modifier = Modifier
+                    .align(Alignment.Top),
+                    checked = todo.isChecked,
+                    onCheckedChange = { isChecked -> onCheckedChanged(isChecked) })
+                IconButton(onClick = {}) {
+                    Icon(imageVector = Icons.Filled.Delete, contentDescription = null)
+                }
+
+            }
         }
     }
 }
