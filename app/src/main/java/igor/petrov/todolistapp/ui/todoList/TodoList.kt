@@ -1,6 +1,8 @@
 package igor.petrov.todolistapp.ui.todoList
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,6 +12,7 @@ import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -17,6 +20,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -46,16 +51,29 @@ fun TodoList(state: TodoListState,
     Column(modifier = modifier
         //.padding(0.dp)
         .fillMaxSize()
-        .imePadding()
-        ,
+        .imePadding(),
         verticalArrangement = Arrangement.SpaceBetween) {
         LazyColumn(
             modifier = Modifier
                 .weight(1f)
         ) {
-            item { TodoItem(Todo("Test", "Test", false), {}) }
+            if (state.todoList.isEmpty()) {
+                item {
+                    Box(modifier
+                        .fillMaxWidth()
+                        .padding(8.dp)
+                        .border(
+                            width = 1.dp,
+                            color = Color.Black,
+                            shape = RoundedCornerShape(8.dp)
+                        )
+                        ) {
+                        Text(text = "Add some new Todos", modifier = Modifier.padding(horizontal = 4.dp), fontWeight = FontWeight.Bold)
+                    }
+                }
+            }
             items(state.todoList) { todo ->
-                TodoItem(Todo(todo.title, todo.description, todo.isChecked), onCheckedChanged = {onAction(ToDoListAction.OnTodoCheckedChanged(todo))})
+                TodoItem(Todo(todo.title, todo.description, todo.isChecked), onCheckedChanged = { onAction(ToDoListAction.OnTodoCheckedChanged(todo)) })
             }
         }
 
