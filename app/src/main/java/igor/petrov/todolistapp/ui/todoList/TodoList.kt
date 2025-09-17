@@ -27,7 +27,6 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import igor.petrov.simplecomposecheckbox.ui.todoList.ToDoListAction
-import igor.petrov.simplecomposecheckbox.ui.todoList.TodoListState
 import igor.petrov.simplecomposecheckbox.ui.todoList.TodoListViewModel
 import igor.petrov.todolistapp.Todo
 import igor.petrov.todolistapp.ui.todoItem.TodoItem
