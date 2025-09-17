@@ -1,4 +1,4 @@
-package igor.petrov.todolistapp.ui.theme.todoItem
+package igor.petrov.todolistapp.ui.todoItem
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement

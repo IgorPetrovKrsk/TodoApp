@@ -10,9 +10,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import igor.petrov.simplecomposecheckbox.ui.todoList.TodoListState
 import igor.petrov.todolistapp.ui.theme.SimpleComposeCheckboxTheme
-import igor.petrov.todolistapp.ui.theme.todoItem.TodoList
-import igor.petrov.todolistapp.ui.theme.todoItem.TodoListRoot
+import igor.petrov.todolistapp.ui.todoList.TodoList
+import igor.petrov.todolistapp.ui.todoList.TodoListRoot
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +33,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun TodoListPreview() {
     SimpleComposeCheckboxTheme {
-        TodoList()
+        TodoList(TodoListState(),{})
     }
 }
