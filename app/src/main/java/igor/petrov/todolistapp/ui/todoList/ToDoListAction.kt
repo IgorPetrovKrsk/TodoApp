@@ -1,4 +1,4 @@
-package igor.petrov.simplecomposecheckbox.ui.todoList
+package igor.petrov.todolistapp.ui.todoList
 
 import igor.petrov.todolistapp.Todo
 

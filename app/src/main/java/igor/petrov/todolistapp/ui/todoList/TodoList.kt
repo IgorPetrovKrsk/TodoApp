@@ -26,8 +26,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import igor.petrov.simplecomposecheckbox.ui.todoList.ToDoListAction
-import igor.petrov.simplecomposecheckbox.ui.todoList.TodoListViewModel
 import igor.petrov.todolistapp.Todo
 import igor.petrov.todolistapp.ui.todoItem.TodoItem
 
@@ -66,13 +64,13 @@ fun TodoList(state: TodoListState,
                             color = Color.Black,
                             shape = RoundedCornerShape(8.dp)
                         )
-                        ) {
+                    ) {
                         Text(text = "Add some new Todos", modifier = Modifier.padding(horizontal = 4.dp), fontWeight = FontWeight.Bold)
                     }
                 }
             }
             items(state.todoList) { todo ->
-                TodoItem(Todo(todo.title, todo.description, todo.isChecked), onCheckedChanged = { onAction(ToDoListAction.OnTodoCheckedChanged(todo)) }, onDeleteButtonClick = {onAction(ToDoListAction.OnTodoDeleteButtonClick(todo))})
+                TodoItem(Todo(todo.title, todo.description, todo.isChecked), onCheckedChanged = { onAction(ToDoListAction.OnTodoCheckedChanged(todo)) }, onDeleteButtonClick = { onAction(ToDoListAction.OnTodoDeleteButtonClick(todo)) })
             }
         }
 
@@ -83,13 +81,14 @@ fun TodoList(state: TodoListState,
         ) {
             Column(
                 modifier = Modifier
-                    .padding(0.dp),
+                    .padding(8.dp)
+                    .weight(1f),
                 verticalArrangement = Arrangement.Bottom,
 
                 ) {
-                OutlinedTextField(value = state.titleText, label = { Text("Title") }, singleLine = true, onValueChange = { newTitle -> onAction(ToDoListAction.OnTitleTextChange(newTitle)) })
+                OutlinedTextField(value = state.titleText, label = { Text("Title") }, singleLine = true, onValueChange = { newTitle -> onAction(ToDoListAction.OnTitleTextChange(newTitle)) }, modifier = Modifier.fillMaxWidth())
                 //Spacer(modifier = modifier.height(1.dp))
-                OutlinedTextField(value = state.descriptionText, label = { Text("Description") }, singleLine = true, onValueChange = { newDescription -> onAction(ToDoListAction.OnDescriptionTextChange(newDescription)) })
+                OutlinedTextField(value = state.descriptionText, label = { Text("Description") }, singleLine = true, onValueChange = { newDescription -> onAction(ToDoListAction.OnDescriptionTextChange(newDescription)) }, modifier = Modifier.fillMaxWidth())
             }
             Button(modifier = Modifier
                 .height(128.dp)
