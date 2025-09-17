@@ -10,8 +10,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.sharp.Delete
-import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -33,11 +31,11 @@ import igor.petrov.todolistapp.Todo
 @Composable
 fun TodoItemRoot(modifier: Modifier = Modifier) {
     var todo by rememberSaveable { mutableStateOf<Todo>(Todo("Test", "This is a test todo", false)) }
-    TodoItem(todo, onCheckedChanged = { it -> todo = todo.copy(isChecked = it) }, modifier = modifier)
+    TodoItem(todo, onCheckedChanged = { it -> todo = todo.copy(isChecked = it) },{}, modifier = modifier)
 }
 
 @Composable
-fun TodoItem(todo: Todo, onCheckedChanged: ((Boolean) -> Unit), modifier: Modifier = Modifier) {
+fun TodoItem(todo: Todo, onCheckedChanged: ((Boolean) -> Unit),onDeleteButtonClick: ((Todo) -> Unit), modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
             .fillMaxWidth()
@@ -72,7 +70,7 @@ fun TodoItem(todo: Todo, onCheckedChanged: ((Boolean) -> Unit), modifier: Modifi
                     .align(Alignment.Top),
                     checked = todo.isChecked,
                     onCheckedChange = { isChecked -> onCheckedChanged(isChecked) })
-                IconButton(onClick = {}) {
+                IconButton(onClick = {onDeleteButtonClick(todo)}) {
                     Icon(imageVector = Icons.Filled.Delete, contentDescription = null)
                 }
 
@@ -86,5 +84,5 @@ fun TodoItem(todo: Todo, onCheckedChanged: ((Boolean) -> Unit), modifier: Modifi
 )
 @Composable
 fun TodoItemPreview() {
-    TodoItem(Todo("Preview", "Description Preview", false), {})
+    TodoItem(Todo("Preview", "Description Preview", false), {},{})
 }

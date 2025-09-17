@@ -36,7 +36,11 @@ class TodoListViewModel : ViewModel() {
                     todoList = it.todoList.map { if (it == action.todo) Todo(it.title,it.description,!it.isChecked) else it}
                 )
             }
-            is ToDoListAction.OnTodoDeleteButtonClick -> TODO()
+            is ToDoListAction.OnTodoDeleteButtonClick -> _state.update {
+                it.copy(
+                    todoList = it.todoList.filter { it!=action.todo }
+                )
+            }
         }
     }
 }
