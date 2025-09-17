@@ -55,7 +55,7 @@ fun TodoList(state: TodoListState,
         ) {
             item { TodoItem(Todo("Test", "Test", false), {}) }
             items(state.todoList) { todo ->
-                TodoItem(Todo(todo.title, todo.description, todo.isChecked), {})
+                TodoItem(Todo(todo.title, todo.description, todo.isChecked), onCheckedChanged = {onAction(ToDoListAction.OnTodoCheckedChanged(todo))})
             }
         }
 
